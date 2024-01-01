@@ -21,7 +21,7 @@ const Card = ({ item }) => {
       <div className="absolute top-0 left-0 bg-gradient-to-br from-pink-800 to-purple-600 w-full h-full blur opacity-75 -inset-0.5 group-hover:duration-200 duration-1000 group-hover:opacity-90 rounded-xl" />
       <div className="neo relative flex flex-col items-center pb-10 px-2 bg-opacity-70 rounded-xl group-hover:duration-200">
         <img
-          className="my-2 w-32 h-32 mb-3 rounded-full"
+          className="my-2 w-[150px] h-[150px] mb-3 rounded-full object-contain"
           src={item.image}
           alt="Project"
         />

@@ -1,8 +1,16 @@
 import cashApp from "./cashAppLogo.svg";
 import form from "./from.webp";
 import event from "./event.png";
+import landing from "./landing.JPG";
 
 const data = [
+  {
+    id: 4,
+    title: "Landing page",
+    description: "Landing page to showcase your brand",
+    link: "https://landing-page-0xsahil.netlify.app/",
+    image: landing,
+  },
   {
     id: 1,
     title: "EVENT",
