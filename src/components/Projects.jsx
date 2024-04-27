@@ -1,18 +1,13 @@
 import React from "react";
-import useProjects from "../assets/useProjects";
+import { data } from "../assets/assets";
 
 const Projects = () => {
-  const projects = useProjects();
   return (
-    <div className="mx-auto my-0">
-      <div className="flex items-center flex-col text-white">
-        {!projects.length && <p>Fetching details.....</p>}
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 max-w-[90%] mx-auto md:max-w-screen-xl justify-items-stretch items-stretch	">
-        {projects.length &&
-          projects.map((item,index) => {
-            return <Card item={item} key={index} />;
-          })}
+    <div className="w-[90%] max-w-3xl mx-auto my-0">
+      <div className="flex items-center flex-col">
+        {data.map((item) => {
+          return <Card item={item} key={item.id} />;
+        })}
       </div>
     </div>
   );
@@ -22,21 +17,23 @@ export default Projects;
 
 const Card = ({ item }) => {
   return (
-    <div className="relative m-4 group">
+    <div className="relative w-full max-w-lg m-4 group">
       <div className="absolute top-0 left-0 bg-gradient-to-br from-pink-800 to-purple-600 w-full h-full blur opacity-75 -inset-0.5 group-hover:duration-200 duration-1000 group-hover:opacity-90 rounded-xl" />
-      <div className="neo relative flex flex-col items-center gap-2 text-center p-8 bg-opacity-70 rounded-xl group-hover:duration-200">
+      <div className="neo relative flex flex-col items-center pb-10 px-2 bg-opacity-70 rounded-xl group-hover:duration-200">
         <img
-          className="my-2 w-[100px] h-[100px] mb-3 p-4 object-contain"
-          src={item.icon}
+          className="my-2 w-[150px] h-[150px] mb-3 rounded-full object-contain"
+          src={item.image}
           alt="Project"
         />
         <h5 className="mb-1 text-xl font-semibold text-gray-900">
-          {item.projectName}
+          {item.title}
         </h5>
-        <p className="text-sm font-medium text-gray-500">{item.impact}</p>
-        <div className="flex space-x-3 mt-2">
+        <span className="text-md font-medium text-gray-500">
+          {item.description}
+        </span>
+        <div className="flex mt-4 space-x-3 md:mt-6">
           <a
-            href={item.projectLink}
+            href={item.link}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-zinc-100 bg-purple-700 rounded-lg hover:bg-purple-800"
